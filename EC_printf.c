@@ -18,21 +18,69 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i++])
 	{
-		if (format[i] != '\' && format[i] != '%')
+		if (format[i] != '\\' && format[i] != '%')
+		{
 			_putchar(format[i]);
+		}
 		else
-			if (format[i] == '%' && format[i - 1] != '\')
+		{
+			if (format[i] == '%' && format[i - 1] != '\\')
 				switch (format[i + 1])
 				{
-					case 'c':
-						_putchar(va_arg(args, int);
+				case 'c':
+						_putchar(va_arg(args, int));
+						i++;
 						break;
-					case 's':
-						print_string(va_arg(args, char *);
+				case 's':
+						print_string(va_arg(args, char *));
+						i++;
 						break;
-					case 'd' || 'i':
-						print_num(va_arg(args, int);
+				case 'd':
+				case 'i':
+						print_num(va_arg(args, int));
+						i++;
 						break;
 				}
+			if (format[i] == '\\')
+			{
+				switch (format[i + 1])
+				{
+				case 'a':
+					_putchar(7);
+					i++;
+					break;
+				case 'b':
+					_putchar(8);
+					i++;
+					break;
+				case 't':
+					_putchar(9);
+					i++;
+					break;
+				case 'n':
+					_putchar(10);
+					i++;
+					break;
+				case 'v':
+					_putchar(11);
+					i++;
+					break;
+				case 'f':
+					_putchar(12);
+					i++;
+					break;
+				case 'r':
+					_putchar(13);
+					i++;
+					break;
+				case '%':
+					_putchar('%');
+					break;
+				default:
+					/* _putchar(format[); */
+					break;
+				}
+			}
+		}
 	}
 }
