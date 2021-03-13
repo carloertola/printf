@@ -13,4 +13,26 @@
  */
 int _printf(const char *format, ...)
 {
+	va_list args;
+
+	va_start(args, format);
+	while (format[i++])
+	{
+		if (format[i] != '\' && format[i] != '%')
+			_putchar(format[i]);
+		else
+			if (format[i] == '%' && format[i - 1] != '\')
+				switch (format[i + 1])
+				{
+					case 'c':
+						_putchar(va_arg(args, int);
+						break;
+					case 's':
+						print_string(va_arg(args, char *);
+						break;
+					case 'd' || 'i':
+						print_num(va_arg(args, int);
+						break;
+				}
+	}
 }
