@@ -9,3 +9,8 @@ from Addis Ababa, Ethiopia.
 
 This file contains the function prototypes, macros and standard libraries that
 have been defined and used in this repository.
+
+## _putchar.c
+
+This file contains the _putchar function that prints a character to standard
+output. It takes a character argument and returns an integer.
