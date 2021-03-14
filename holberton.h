@@ -7,7 +7,9 @@
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-void print_num(int);
-void print_string(char *str);
+int print_num(int);
+int print_string(char *str);
+int modulus_handler(va_list *args);
+int escape_handler(char spec);
 
 #endif /* HOLBERTON_H */
