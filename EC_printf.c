@@ -7,11 +7,11 @@
  *
  * Return: num of printed chars if successful and 0 if error
  */
-int modulus_handler(va_list *args)
+int modulus_handler(char spec, va_list *args)
 {
 	int chars_printed = 0;
 
-	switch (format[i + 1])
+	switch (spec)
 	{
 		case 'c':
 			_putchar(va_arg(args, int));
@@ -91,7 +91,7 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (modulus_handler(*args))
+			if (modulus_handler(format[i], &args))
 				return (-1);
 		}
 		else if (format[i] == '\\')
