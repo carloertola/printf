@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	int i = 0;
 
 	va_start(args, format);
-	while (format[i++])
+	while (format[i])
 	{
 		if (format[i] != '\\' && format[i] != '%')
 		{
@@ -74,8 +74,13 @@ int _printf(const char *format, ...)
 					_putchar(13);
 					i++;
 					break;
-				case '%':
-					_putchar('%');
+				case '\%':
+					_putchar(format[i + 1]);
+					i++;
+					break;
+				case '\\':
+					_putchar(92);
+					i++;
 					break;
 				default:
 					/* _putchar(format[); */
@@ -83,6 +88,7 @@ int _printf(const char *format, ...)
 				}
 			}
 		}
+		i++;
 	}
 	return (0);
 }
