@@ -15,9 +15,16 @@ by a subsequent argument to be passed after format
 Each '%' will be followed by a character to indicate the type of specifier
 Here are all the specifiers handles by this function:
 
-c	used to specify a single character
-s	specifies a string of characters
-d, i	integers can be specified using these characters
+c		used to specify a single character
+
+s		specifies a string of characters
+
+d, i		integers are specified using these characters
+
+b		converts an unsigned integer to its binary equivalent
+
+%		prints a modulus
+
 .SH SEE ALSO
 printf(3), puts(3), scanf(3)
 .SH BUGS
