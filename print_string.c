@@ -9,7 +9,7 @@ int print_string(char *str)
 {
 	int chars_printed = 0;
 
-	while (str[chars_printed])
+	while (str && str[chars_printed])
 	{
 		_putchar(str[chars_printed]);
 		chars_printed++;

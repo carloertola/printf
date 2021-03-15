@@ -40,6 +40,6 @@ int _printf(const char *format, ...)
 				chars_printed += print_unknown_spec(format[i]);
 		}
 		i++;
-	}	
+	}
 	return (chars_printed);
 }
