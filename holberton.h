@@ -9,7 +9,7 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int print_num(int);
 int print_string(char *str);
-void _puts(char *str);
 int print_binary(unsigned int num);
+int print_unknown_spec(char c);
 
 #endif /* HOLBERTON_H */
