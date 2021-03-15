@@ -12,9 +12,15 @@ int print_binary(unsigned int num)
 	char bin[sizeof(unsigned int) * 8];
 
 	if (num == 0)
+	{
 		chars_printed += _putchar('0');
+		return (chars_printed);
+	}
 	if (num == 1)
+	{
 		chars_printed += _putchar('1');
+		return (chars_printed);
+	}
 	while (num > 0)
 	{
 		bin[idx] = '0' + (num % 2);
