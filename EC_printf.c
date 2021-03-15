@@ -36,6 +36,8 @@ int _printf(const char *format, ...)
 				chars_printed += _putchar('%');
 			else if (format[i] == 'b')
 				chars_printed += print_binary((unsigned int)va_arg(args, int));
+			else
+				chars_printed += print_unknown_spec(format[i]);
 		}
 		i++;
 	}
