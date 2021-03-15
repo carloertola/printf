@@ -7,18 +7,12 @@
  */
 int print_string(char *str)
 {
-	int x = 0;
 	int chars_printed = 0;
 
-	while (*(str + x))
+	while (str[chars_printed])
 	{
-		_putchar(*(str + x));
+		_putchar(str[chars_printed]);
 		chars_printed++;
-		x++;
 	}
-
-	if (chars_printed > 0)
-		return (chars_printed);
-	else
-		return (0);
+	return (chars_printed);
 }
