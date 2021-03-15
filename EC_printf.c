@@ -34,8 +34,8 @@ int _printf(const char *format, ...)
 				chars_printed += print_num(va_arg(args, int));
 			else if (format[i] == '%')
 				chars_printed += _putchar('%');
-			/*else if (format[i] == 'b')
-				chars_printed += print_binary((unsigned int)va_arg(args, int));*/
+			else if (format[i] == 'b')
+				chars_printed += print_binary((unsigned int)va_arg(args, int));
 		}
 		i++;
 	}
