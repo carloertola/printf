@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	int i = 0, chars_printed = 0;
 
 	va_start(args, format);
-	while (format[i])
+	while (format && format[i])
 	{
 		if (format[i] != '%')
 		{
@@ -40,6 +40,6 @@ int _printf(const char *format, ...)
 				chars_printed += print_unknown_spec(format[i]);
 		}
 		i++;
-	}
+	}	
 	return (chars_printed);
 }
