@@ -8,6 +8,8 @@
 int print_num(int n)
 {
 	unsigned int x = 0;
+	int chars_printed = 0;
+
 	x = n;
 	if (n < 0)
 	{
@@ -16,5 +18,6 @@ int print_num(int n)
 	}
 	if (x / 10)
 		print_num(x / 10);
-	_putchar('0' + x % 10);
+	chars_printed += _putchar('0' + x % 10);
+	return (chars_printed + 1);
 }
