@@ -1,23 +1,49 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
- * print_num - prints number to screen
- * @n: number to be printed
- * Return: returns number of chars printed
+ * print_num - prints the digits of an interger
+ * @n: integer to be printed
+ * Return: no return value
  */
-int print_num(int n)
+int print_num(long int n)
 {
-	unsigned int x = 0;
+	unsigned long int x, base;
 	int chars_printed = 0;
 
-	x = n;
+	x = 0;
+	base = 10;
 	if (n < 0)
 	{
-		_putchar('-');
-		x *= -1;
+		chars_printed += _putchar(45);
+		x = -n;
 	}
-	if (x / 10)
-		print_num(x / 10);
-	chars_printed += _putchar('0' + x % 10);
-	return (chars_printed + 1);
+	else
+	{
+		x = n;
+	}
+	if (x < base)
+	{
+		chars_printed += _putchar('0' + x);
+	}
+	else
+	{
+		while (x >= base)
+		{
+			base *= 10;
+			if (base == 1000000000000000000)
+				break;
+		}
+		if (!(x > 1000000000000000000))
+			base /= 10;
+		chars_printed += _putchar('0' + (x / base));
+		base /= 10;
+		while (base >= 10)
+		{
+			chars_printed += _putchar('0' + ((x / base) % 10));
+			base /= 10;
+		}
+		chars_printed += _putchar('0' + (x % 10));
+	}
+	return (chars_printed);
 }
