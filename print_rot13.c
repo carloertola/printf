@@ -1,29 +1,51 @@
 #include "holberton.h"
 
 /**
- * print_rot13 - converts string to rot13 and prints it
+ * print_rot13 - encodes a string using rot13 encryption
+ * @s: string to be encoded
  *
- * @c: character string pointer
- * Return: number of characters printed
+ * Return: number of chars printed
  */
-int print_rot13(char *c)
+int print_rot13(char *s)
 {
-	int i, j, chars_printed = 0;
-	char rot_13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char nor[] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		      'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		      'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		      'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		      'Z', ' '};
+	char rot[] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
+		      'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+		      'm', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
+		      'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+		      'M', ' '};
+	int count, len, chars_printed = 0;
+	char now, *rot13d;
 
-	for (i = 0; c[i] != '\0'; i++)
+	len = 0;
+	while (*(s + len))
+		len++;
+	rot13d = malloc(sizeof(char) * len);
+	if (rot13d == NULL)
 	{
-		for (j = 0; j < 52; j++)
+		free(rot13d);
+		return (0);
+	}
+	len = 0;
+	while (*(s + len))
+	{
+		now = *(s + len);
+		for (count = 0; count < 53; count++)
 		{
-			if (alphabet[j] == c[i])
+			if (now == nor[count])
 			{
-				/**(c + i) = *(rot_13 + j);*/
-				chars_printed += _putchar(rot_13[j]);
+				*(rot13d + len) = rot[count];
 				break;
 			}
 		}
+		len++;
 	}
-	/*chars_printed += print_string(c);*/
+	*(rot13d + len) = '\0';
+	chars_printed = print_string(rot13d);
+	free(rot13d);
 	return (chars_printed);
 }
