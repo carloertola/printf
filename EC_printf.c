@@ -43,6 +43,8 @@ int _printf(const char *format, ...)
 				chars_printed += print_odh(format[i], (unsigned int)va_arg(args, int));
 			else if (format[i] == 'S')
 				chars_printed += print_S(va_arg(args, char *));
+			else if (format[i] == 'p')
+				chars_printed += print_pointer(va_arg(args, void *));
 			else
 				chars_printed += print_unknown_spec(format[i]);
 		}
