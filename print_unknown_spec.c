@@ -10,7 +10,14 @@ int print_unknown_spec(char c)
 {
 	int chars_printed = 0;
 
-	chars_printed += _putchar('%');
-	chars_printed += _putchar(c);
+	if (c == '%')
+	{
+		chars_printed += _putchar('%');
+	}
+	else
+	{
+		chars_printed += _putchar('%');
+		chars_printed += _putchar(c);
+	}
 	return (chars_printed);
 }
