@@ -53,8 +53,12 @@ int print_odh(char c, unsigned int num)
 
 	if (c == 'u')
 		chars_printed += print_num(num);
+	else if (c == 'o' && num == 0)
+		chars_printed = print_string("00");
 	else if (c == 'o')
 		chars_printed += dec_to_oct(num);
+	else if ((c == 'x' || c == 'X') && num == 0)
+		chars_printed += print_string("00");
 	else
 		chars_printed += dec_to_hex(c, num);
 	return (chars_printed);
