@@ -41,6 +41,12 @@ int print_rot13(char *s)
 				*(rot13d + len) = rot[count];
 				break;
 			}
+			if ((now >= 33 && now <= 64) || (now >= 91 && now <= 96)
+			    || (now > 127))
+			{
+				*(rot13d + len) = now;
+				break;
+			}
 		}
 		len++;
 	}
