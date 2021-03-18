@@ -18,7 +18,7 @@ int print_rot13(char *s)
 		      'm', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y',
 		      'Z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
 		      'M', ' '};
-	int count, len, chars_printed = 0;
+	int count, len, count2 = 0, chars_printed = 0;
 	char now, *rot13d;
 
 	len = 0;
@@ -39,10 +39,16 @@ int print_rot13(char *s)
 			if (now == nor[count])
 			{
 				*(rot13d + len) = rot[count];
+				count2 = count;
 				break;
 			}
+		}
+		if (*(rot13d + len) != rot[count2])
 			*(rot13d + len) = now;
-			break;
+		if (*(rot13d + len) == '\\')
+		{
+			*(rot13d + len + 1) = *(s + len + 1);
+			len++;
 		}
 		len++;
 	}
