@@ -26,10 +26,9 @@ int _printf(const char *format, ...)
 		else if (format[i + 1])
 		{
 			i++;
-			if (format[i] == 'c')
-				chars_printed += _putchar(va_arg(args, int));
-			else if (format[i] == 's')
-				chars_printed += print_string(va_arg(args, char *));
+			if (format[i] == 'c' || format[i] == 's')
+				chars_printed += format[i] == 'c' ? _putchar(va_arg(args, int)) :
+				print_string(va_arg(args, char *));
 			else if (format[i] == 'd' || format[i] == 'i')
 				chars_printed += print_num(va_arg(args, int));
 			else if (format[i] == 'b')
@@ -50,5 +49,6 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
+	va_end(args);
 	return (chars_printed);
 }
