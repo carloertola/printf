@@ -9,6 +9,8 @@ int print_string(char *str)
 {
 	int chars_printed = 0;
 
+	if (str == (char *)0)
+		return (print_string("(null)"));
 	while (str && str[chars_printed])
 	{
 		_putchar(str[chars_printed]);
