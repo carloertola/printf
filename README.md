@@ -5,6 +5,11 @@ This repository contains custom implementations of the C printf function.
 It's kindly contributed by Eugene Muthui from Nairobi, Kenya and Carlo Ertola
 from Addis Ababa, Ethiopia.
 
+Example on how to use this function:
+_printf("Hello %s!\n", "Africa")
+
+prints: "Hello Africa!" followed by a new line
+
 ## holberton.h
 This file contains the function prototypes, macros and standard libraries that
 have been defined and used in this repository.
